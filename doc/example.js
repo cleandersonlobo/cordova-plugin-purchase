@@ -1,21 +1,21 @@
 
-    store.when("order").approved(function(order) {
+    AppPurchase.when("order").approved(function(order) {
         // Log all approved orders
         console.log("order " + order.alias + " approved");
     });
 
-    store.when("consumable order").approved(function(order) {
+    AppPurchase.when("consumable order").approved(function(order) {
         // Auto-finish all consumable orders
         order.finish();
     });
 
-    store.when("order 100 coins").approved(function(order) {
+    AppPurchase.when("order 100 coins").approved(function(order) {
         app.addCoins(100);
         order.finish();
     });
 
     // note: purchased and approved are aliases
-    store.when("full version")
+    AppPurchase.when("full version")
         .purchased(function(order) {
             app.unlock();
             order.finish();
@@ -24,41 +24,41 @@
             app.lock();
         });
 
-    store.when("free subscription").approved(function(subscription) {
+    AppPurchase.when("free subscription").approved(function(subscription) {
     });
 
-    store.when("subscription status").updated(function(subscription) {
+    AppPurchase.when("subscription status").updated(function(subscription) {
         if (subscription.expired) {
         }
         else {
         }
     });
 
-    store.when("order com.example.app.inappid3").approved(function(order) {
+    AppPurchase.when("order com.example.app.inappid3").approved(function(order) {
         // Special case for the com.example.app.inappid3 purchase
         order.finish();
     });
 
-    store.when("order").rejected(function(order) {
+    AppPurchase.when("order").rejected(function(order) {
     });
 
-    store.when("order").cancelled(function(order) {
+    AppPurchase.when("order").cancelled(function(order) {
     });
 
-    store.ready(); // true or false
+    AppPurchase.ready(); // true or false
 
     // execute when (or immediately if) the store is ready and available.
-    store.ready(function() { });
+    AppPurchase.ready(function() { });
 
-    store.off(callback);
+    AppPurchase.off(callback);
 
-    store.refresh();
+    AppPurchase.refresh();
 
     // Call restore if supported
-    if (store.restore)
-        store.restore();
+    if (AppPurchase.restore)
+        AppPurchase.restore();
 
-    store.order("com.example.app.inappid3")
+    AppPurchase.order("com.example.app.inappid3")
         .initiated(function() {
             // order initiated, waiting approval...
         },
