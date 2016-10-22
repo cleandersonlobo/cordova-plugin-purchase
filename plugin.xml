@@ -42,7 +42,8 @@ SOFTWARE.
     <!-- ios -->
     <platform name="ios">
         <js-module src="www/store-ios.js" name="InAppPurchase">
-            <clobbers target="store" />
+		<clobbers target="IosInAppPurchase" />
+		<clobbers target="window.IosInAppPurchase" />
         </js-module>
 
         <!-- Cordova 2.2 -->
@@ -70,7 +71,8 @@ SOFTWARE.
         <preference name="BILLING_KEY" />
 
         <js-module src="www/store-android.js" name="InAppBillingPlugin">
-            <clobbers target="store" />
+		<clobbers target="AndroidInAppPurchase" />
+		<clobbers target="window.AndroidInAppPurchase" />
         </js-module>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
