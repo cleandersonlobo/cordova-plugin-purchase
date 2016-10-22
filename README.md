@@ -40,6 +40,15 @@ For Android:
 </gap:plugin>
 ```
 
+For Meteor Projects:
+```js
+App.configurePlugin('cc.fovea.cordova.purchase', {
+  BILLING_KEY:'MIIB....',
+});
+
+```
+
+
 ### Setup your Application
 
 See [Setup iOS Applications](https://github.com/j3k0/cordova-plugin-purchase/wiki/HOWTO#setup-ios-applications) and [Setup Android Applications](https://github.com/j3k0/cordova-plugin-purchase/wiki/HOWTO#setup-android-applications).
